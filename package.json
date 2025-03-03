@@ -1,0 +1,33 @@
+{
+  "name": "torganic",
+  "version": "1.0.0",
+  "main": "server.js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect server.js/index.js",
+    "watch": "sass --watch src/resources/scss:public/css --no-source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TD4C/torganic.git"
+  },
+  "keywords": [
+    "torganic"
+  ],
+  "author": "ThanhDat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TD4C/torganic/issues"
+  },
+  "homepage": "https://github.com/TD4C/torganic#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9",
+    "sass": "^1.85.1"
+  }
+}
