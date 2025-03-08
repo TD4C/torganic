@@ -68,20 +68,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const header = document.querySelector(".header");
+
     let lastScrollY = window.scrollY;
     let ticking = false;
-
+    let isFixed = false; // Trạng thái hiện tại của header
 
     function updateHeader() {
         let currentScrollY = window.scrollY;
+
         if (currentScrollY > lastScrollY && currentScrollY > 230) {
-
-            header.classList.add("header-fixed");
-            header.classList.remove("header-visible");
-
+            if (!isFixed) { // Chỉ đổi class nếu trạng thái thay đổi
+                header.classList.add("header-fixed");
+                header.classList.remove("header-visible");
+                isFixed = true;
+            }
         } else {
-            header.classList.add("header-visible");
-            header.classList.remove("header-fixed");
+            if (isFixed) { // Chỉ đổi class nếu trạng thái thay đổi
+                header.classList.add("header-visible");
+                header.classList.remove("header-fixed");
+                isFixed = false;
+            }
         }
 
         lastScrollY = currentScrollY;
@@ -95,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 document.addEventListener("DOMContentLoaded", () => {
     const products = document.querySelectorAll(".product");
    
