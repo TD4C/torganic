@@ -1,73 +1,76 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const productTabs = document.querySelectorAll(".pro_li");
-    const products = document.querySelectorAll(".product");
+document.addEventListener('DOMContentLoaded', function () {
+    const productTabs = document.querySelectorAll('.pro_li');
+    const products = document.querySelectorAll('.product');
 
-    productTabs.forEach(tab => {
-        tab.addEventListener("click", function () {
+    productTabs.forEach((tab) => {
+        tab.addEventListener('click', function () {
+            document
+                .querySelector('.pro_active')
+                .classList.remove('pro_active');
+            tab.classList.add('pro_active');
 
-            document.querySelector(".pro_active").classList.remove("pro_active");
-            tab.classList.add("pro_active");
+            const category = tab.innerText
+                .trim()
+                .toLowerCase()
+                .replace(' ', '-');
 
-
-            const category = tab.innerText.trim().toLowerCase().replace(" ", "-");
-
-
-            products.forEach(product => {
-                if (category === "all" || product.dataset.category === category) {
-                    product.style.display = "block";
-                } else {
-                    product.style.display = "none";
-                }
-            });
+            // products.forEach(product => {
+            //     if (category === "all" || product.dataset.category === category) {
+            //         product.style.display = "block";
+            //     } else {
+            //         product.style.display = "none";
+            //     }
+            // });
         });
     });
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const scrollToTopButton = document.getElementById("scrollToTop");
 
-    window.addEventListener("scroll", function () {
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollToTopButton = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 300) {
-            scrollToTopButton.classList.add("show");
+            scrollToTopButton.classList.add('show');
         } else {
-            scrollToTopButton.classList.remove("show");
+            scrollToTopButton.classList.remove('show');
         }
     });
 
-    scrollToTopButton.addEventListener("click", function () {
+    scrollToTopButton.addEventListener('click', function () {
         window.scrollTo({
             top: 0,
-            behavior: "smooth"
+            behavior: 'smooth',
         });
     });
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.querySelector(".search-bar input");
-    const hiddenContent = document.getElementById("hiddenContent");
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.querySelector('.search-bar input');
+    const hiddenContent = document.getElementById('hiddenContent');
 
-    searchInput.addEventListener("focus", function () {
-        hiddenContent.style.display = "block";
+    searchInput.addEventListener('focus', function () {
+        hiddenContent.style.display = 'block';
         setTimeout(() => {
-            hiddenContent.style.maxHeight = hiddenContent.scrollHeight + "px";
-            hiddenContent.style.opacity = "1";
+            hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
+            hiddenContent.style.opacity = '1';
         }, 10);
     });
 
-
-    document.addEventListener("click", function (event) {
-        if (!hiddenContent.contains(event.target) && !searchInput.contains(event.target)) {
-            hiddenContent.style.maxHeight = "0";
-            hiddenContent.style.opacity = "0";
+    document.addEventListener('click', function (event) {
+        if (
+            !hiddenContent.contains(event.target) &&
+            !searchInput.contains(event.target)
+        ) {
+            hiddenContent.style.maxHeight = '0';
+            hiddenContent.style.opacity = '0';
             setTimeout(() => {
-                hiddenContent.style.display = "none";
+                hiddenContent.style.display = 'none';
             }, 300);
         }
     });
 });
 
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector(".header");
+document.addEventListener('DOMContentLoaded', function () {
+    const header = document.querySelector('.header');
 
     let lastScrollY = window.scrollY;
     let ticking = false;
@@ -77,15 +80,17 @@ document.addEventListener("DOMContentLoaded", function () {
         let currentScrollY = window.scrollY;
 
         if (currentScrollY > lastScrollY && currentScrollY > 230) {
-            if (!isFixed) { // Chỉ đổi class nếu trạng thái thay đổi
-                header.classList.add("header-fixed");
-                header.classList.remove("header-visible");
+            if (!isFixed) {
+                // Chỉ đổi class nếu trạng thái thay đổi
+                header.classList.add('header-fixed');
+                header.classList.remove('header-visible');
                 isFixed = true;
             }
         } else {
-            if (isFixed) { // Chỉ đổi class nếu trạng thái thay đổi
-                header.classList.add("header-visible");
-                header.classList.remove("header-fixed");
+            if (isFixed) {
+                // Chỉ đổi class nếu trạng thái thay đổi
+                header.classList.add('header-visible');
+                header.classList.remove('header-fixed');
                 isFixed = false;
             }
         }
@@ -94,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ticking = false;
     }
 
-    window.addEventListener("scroll", function () {
+    window.addEventListener('scroll', function () {
         if (!ticking) {
             requestAnimationFrame(updateHeader);
             ticking = true;
@@ -102,21 +107,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const products = document.querySelectorAll(".product");
-   
+document.addEventListener('DOMContentLoaded', () => {
+    const products = document.querySelectorAll('.product');
 
-    products.forEach(product => {
-        product.addEventListener("click", () => {
+    products.forEach((product) => {
+        product.addEventListener('click', () => {
             // Lấy thông tin sản phẩm từ data attributes
-         
-            const id = product.dataset.id || "";
-            const name = encodeURIComponent(product.dataset.name || "");
-            const price = encodeURIComponent(product.dataset.price || "");
-            const original = encodeURIComponent(product.dataset.original || "");
-            const discount = encodeURIComponent(product.dataset.discount || "");
-            const img = encodeURIComponent(product.dataset.img || "");
 
+            const id = product.dataset.id || '';
+            const name = encodeURIComponent(product.dataset.name || '');
+            const price = encodeURIComponent(product.dataset.price || '');
+            const original = encodeURIComponent(product.dataset.original || '');
+            const discount = encodeURIComponent(product.dataset.discount || '');
+            const img = encodeURIComponent(product.dataset.img || '');
 
             // Tạo URL với các tham số
             const url = `/product/product.html?id=${id}&name=${name}&price=${price}&original=${original}&discount=${discount}&img=${img}`;
@@ -127,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 // Lấy đối tượng biểu tượng và body
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     const changeIcon = document.querySelector('.change__icon');
     const body = document.body;
 
@@ -146,4 +149,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-

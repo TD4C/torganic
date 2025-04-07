@@ -66,16 +66,37 @@
             <h1 class="pro_title">Popular Products</h1>
             <div class="pro_nav">
                 <ul class="pro_ul">
+                    {{!-- pro_inactive --}}
                     <li class="pro_li pro_active">All</li>
-                    <li class="pro_li pro_inactive">New arrivals</li>
-                    <li class="pro_li pro_inactive">Features</li>
-                    <li class="pro_li pro_inactive">Best sellers</li>
+                    <li class="pro_li ">New arrivals</li>
+                    <li class="pro_li ">Features</li>
+                    <li class="pro_li ">Best sellers</li>
                 </ul>
                 <button class="btn_viewall">View All</button>
             </div>
         </div>
         <div class="grid">
-            <div class="product" data-category="new" data-id="p1" data-name="Fresh Seasonal" data-price="$79.00"
+            {{#each products}}
+<div class="product" data-category="{{this.category}}" data-id="{{this.productId}}" data-name="{{this.name}}" data-price="{{this.price}}"
+    data-original="{{this.originalPrice}}" data-discount="{{this.discount}}" data-img="{{this.image}}">
+    <div class="discount">{{this.discount}}</div>
+    <img class="product_img" src="{{this.image}}" alt="{{this.name}}">
+    <h2 class="product_name">{{this.name}}</h2>
+    <div class="rating">
+        <i class="product_star fas fa-star"></i>
+        <span>{{this.rating}} ({{this.reviews}} Reviews)</span>
+    </div>
+    <div class="price">
+        {{this.price}}
+        {{#if this.originalPrice}}
+        <span class="original">{{this.originalPrice}}</span>
+        {{/if}}
+    </div>
+    <button class="buy_button">Add To Cart</button>
+</div>
+{{/each}}
+
+            {{!-- <div class="product" data-category="new" data-id="p1" data-name="Fresh Seasonal" data-price="$79.00"
                 data-original="$140.00" data-discount="44%"
                 data-img="https://storage.googleapis.com/a1aa/image/kVu01e0ni4Pqu1sxz5OrtjHnfJn_HZgjiCzdUB0Kt-E.jpg">
                 <div class="discount">44%</div>
@@ -165,10 +186,10 @@
                     <span class="original">$140.00</span>
                 </div>
                 <button class="buy_button">Add To Cart</button>
-            </div>
+            </div> --}}
 
         </div>
-        <div class="grid">
+        {{!-- <div class="grid">
             <div class="product">
                 <div class="discount">44%</div>
                 <img class="product_img"
@@ -251,7 +272,7 @@
                 <button class="buy_button">Add To Cart</button>
             </div>
 
-        </div>
+        </div> --}}
     </div>
     <button id="scrollToTop" class="scroll-top">
         <i class="fas fa-chevron-up"></i>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 async function connect() {
     try {
-        await mongoose.connect('mongodb://localhost:27017/education', {
+        await mongoose.connect('mongodb://localhost:27017/torganic', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
