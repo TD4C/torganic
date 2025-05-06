@@ -1,0 +1,129 @@
+
+   
+  
+<div class="checkout-body">
+  <h1 class="checkout-title">Thanh Toán</h1>
+  <div class="checkout-container">
+    <form class="checkout-form checkout-form--shipping" aria-label="Thông tin giao hàng" novalidate>
+      <div class="checkout-form__header">Thông tin giao hàng</div>
+      <div class="checkout-form__body">
+        <div>
+          <label for="checkout-fullname"><span>*</span> Họ và tên</label>
+          <div class="checkout-input-wrapper">
+            <input
+              type="text"
+              id="checkout-fullname"
+              name="fullname"
+              placeholder="Nhập họ và tên"
+              autocomplete="name"
+            />
+            <i class="fas fa-user" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div>
+          <label for="checkout-phone"><span>*</span> Số điện thoại</label>
+          <div class="checkout-input-wrapper">
+            <input
+              type="tel"
+              id="checkout-phone"
+              name="phone"
+              placeholder="Nhập số điện thoại"
+              autocomplete="tel"
+            />
+            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div>
+          <label for="checkout-address"><span>*</span> Địa chỉ</label>
+          <div class="checkout-input-wrapper">
+            <input
+              type="text"
+              id="checkout-address"
+              name="address"
+              placeholder="Nhập địa chỉ của bạn"
+              autocomplete="street-address"
+            />
+            <i class="fas fa-home" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div>
+          <label for="checkout-note">Ghi chú</label>
+          <textarea
+            id="checkout-note"
+            name="note"
+            placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn."
+            rows="4"
+          ></textarea>
+        </div>
+      </div>
+    </form>
+
+    <form class="checkout-form checkout-form--order-summary" aria-label="Đơn hàng của bạn" novalidate>
+      <div class="checkout-form__header">Đơn hàng của bạn</div>
+      <div class="checkout-form__body">
+        <div class="checkout-order-item">
+          <div class="checkout-order-item__left">
+            <img
+              src="https://storage.googleapis.com/a1aa/image/e20b6846-577e-44b9-ae5d-18bcbf026359.jpg"
+              alt="Tủ Đầu Giường Gỗ MOHO VIENNA 201, small wooden bedside table with a lamp and decor on top"
+              width="50"
+              height="50"
+            />
+            <div>
+              <p>Tủ Đầu Giường Gỗ MOHO VIENNA 201</p>
+              <p>Số lượng : x 1</p>
+            </div>
+          </div>
+          <div class="checkout-order-item__right">1.868.708,16₫</div>
+        </div>
+
+        <div class="checkout-total">
+          <p>Tổng cộng</p>
+          <p class="checkout-total__amount">1.868.708,16₫</p>
+        </div>
+
+        <fieldset class="checkout-payment-options">
+          <legend><span>*</span> Phương thức thanh toán</legend>
+
+          <label class="checkout-payment-option">
+            <input
+              type="radio"
+              name="payment"
+              value="cod"
+              checked
+              aria-checked="true"
+            />
+            <span class="checkout-cod-label" aria-label="Thanh toán khi nhận hàng (COD)">
+              <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+              Thanh toán khi nhận hàng (COD)
+            </span>
+          </label>
+
+          <label class="checkout-payment-option">
+            <input type="radio" name="payment" value="vnpay" />
+            <img
+              src="https://storage.googleapis.com/a1aa/image/48863e25-17a6-4e88-4d4f-c38fdea5610d.jpg"
+              alt="VNPAY logo, red and blue diamond shapes"
+              width="16"
+              height="16"
+            />
+            Thanh toán qua VNPAY
+          </label>
+
+          <label class="checkout-payment-option">
+            <input type="radio" name="payment" value="momo" />
+            <img
+              src="https://storage.googleapis.com/a1aa/image/4bbe1206-37e9-42ef-03ee-9fa53a37b9e7.jpg"
+              alt="Ví MoMo logo, pink square with white text"
+              width="16"
+              height="16"
+            />
+            Thanh toán qua Ví MoMo
+          </label>
+        </fieldset>
+
+        <button type="submit" class="checkout-submit-btn">Đặt hàng</button>
+      </div>
+    </form>
+  </div>
+</div>

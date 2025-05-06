@@ -1,30 +1,88 @@
+// document.addEventListener('DOMContentLoaded', function () {
+//     const productTabs = document.querySelectorAll('.pro_li');
+//     const products = document.querySelectorAll('.product');
+
+//     productTabs.forEach((tab) => {
+//         tab.addEventListener('click', function () {
+//             document
+//                 .querySelector('.pro_active')
+//                 .classList.remove('pro_active');
+//             tab.classList.add('pro_active');
+
+//             const category = tab.innerText
+//                 .trim()
+//                 .toLowerCase()
+//                 .replace(' ', '-');
+
+//             products.forEach(product => {
+//                 if (category === "all" || product.dataset.category === category) {
+//                     product.style.display = "block";
+//                 } else {
+//                     product.style.display = "none";
+//                 }
+//             });
+//         });
+//     });
+// });
+// document.addEventListener('DOMContentLoaded', function () {
+//     const productTabs = document.querySelectorAll('.pro_li');
+//     productTabs.forEach((tab) => {
+//         tab.addEventListener('click', function () {
+//             const activeTab = document.querySelector('.pro_active');
+//             if (activeTab) activeTab.classList.remove('pro_active');
+//             tab.classList.add('pro_active');
+
+//             const category = tab.innerText.trim().toLowerCase().replace(/\s+/g, '-');
+//             const newUrl = `/?category=${category}`;
+//             window.location.href = newUrl;
+//         });
+//     });
+// });
 document.addEventListener('DOMContentLoaded', function () {
     const productTabs = document.querySelectorAll('.pro_li');
-    const products = document.querySelectorAll('.product');
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryFromUrl = urlParams.get('category') || 'all'; // Lấy category từ URL, mặc định 'all'
 
+    // Áp dụng class active cho tab tương ứng với category trong URL
     productTabs.forEach((tab) => {
+        const category = tab.innerText
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, '-');
+        if (category === categoryFromUrl) {
+            tab.classList.add('pro_active');
+        } else {
+            tab.classList.remove('pro_active');
+        }
+
+        // Lắng nghe sự kiện click của các tab
         tab.addEventListener('click', function () {
-            document
-                .querySelector('.pro_active')
-                .classList.remove('pro_active');
+            // Bỏ class active cũ và thêm cho tab đang chọn
+            const activeTab = document.querySelector('.pro_active');
+            if (activeTab) activeTab.classList.remove('pro_active');
             tab.classList.add('pro_active');
 
             const category = tab.innerText
                 .trim()
                 .toLowerCase()
-                .replace(' ', '-');
+                .replace(/\s+/g, '-');
 
-            // products.forEach(product => {
-            //     if (category === "all" || product.dataset.category === category) {
-            //         product.style.display = "block";
-            //     } else {
-            //         product.style.display = "none";
-            //     }
-            // });
+            // Tạo URL mới và reload lại trang
+            const newUrl = `/?category=${category}`;
+            window.location.href = newUrl;
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const itemproducTabs = document.querySelectorAll('.footer-item__mobile');
 
+    itemproducTabs.forEach((tab) => {
+        tab.addEventListener('click', function () {
+            document.querySelector('.active').classList.remove('active');
+            tab.classList.add('active');
+        });
+    });
+});
 document.addEventListener('DOMContentLoaded', function () {
     const scrollToTopButton = document.getElementById('scrollToTop');
 
@@ -148,4 +206,33 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.classList.add('fa-sun');
         }
     });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const userGreeting = document.getElementById('userGreeting');
+
+    dropdownMenu.innerHTML = ''; // Xóa nội dung cũ
+
+    if (currentUser) {
+        // Giao diện khi đã đăng nhập
+        userGreeting.innerHTML = `<i class="fas fa-user"></i>  ${currentUser.fullName}`;
+        dropdownMenu.innerHTML = `
+        <a href="/account" class="dropdown-item">Tài khoản</a>
+        <button id="logoutBtn" class="dropdown-item">Đăng xuất</button>
+      `;
+        document
+            .getElementById('logoutBtn')
+            .addEventListener('click', function () {
+                localStorage.removeItem('currentUser');
+                window.location.href = '/';
+            });
+    } else {
+        // Giao diện khi chưa đăng nhập
+        userGreeting.innerHTML = `<i class="fas fa-user"></i>`;
+        dropdownMenu.innerHTML = `
+        <a href="/login" class="dropdown-item">Đăng nhập</a>
+        <a href="/register" class="dropdown-item">Đăng ký</a>
+      `;
+    }
 });

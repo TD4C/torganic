@@ -1,0 +1,154 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Tài khoản của tôi</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+</head>
+<body>
+  <div class="account-container">
+    <aside class="account-sidebar">
+      <h2 class="account-sidebar__title">Tài khoản của tôi</h2>
+      <nav class="account-nav">
+        <a href="#" class="account-nav__link account-nav__link--active"><i class="fas fa-user account-nav__icon"></i>
+          Thông tin cá nhân</a>
+        <a href="#" class="account-nav__link"><i class="fas fa-shopping-bag account-nav__icon"></i> Quản lý đơn hàng</a>
+        <a href="#" class="account-nav__link"><i class="fas fa-sign-out-alt account-nav__icon"></i> Đăng xuất</a>
+      </nav>
+    </aside>
+    <main class="account-main">
+      <div class="account-content-section" id="info-section">
+      <div class="account-header">
+        <h3 class="account-header__title">Thông tin cá nhân</h3>
+        <button class="btn-edit" type="button">
+          <i class="fas fa-pen btn-edit__icon"></i> Chỉnh sửa
+        </button>
+      </div>
+      <div class="account-content">
+        <div class="account-avatar">
+          <img src="https://storage.googleapis.com/a1aa/image/17371cbd-6b78-46ca-a110-ebef1d5f7677.jpg"
+            alt="Blue circle background with white user icon silhouette" width="80" height="80"
+            class="account-avatar__img" />
+        </div>
+        <dl class="account-details">
+          <div class="account-details__item">
+            <dt class="account-details__term">Họ tên:</dt>
+            <dd class="account-details__desc">Luân Trần</dd>
+          </div>
+          <div class="account-details__item">
+            <dt class="account-details__term">Email:</dt>
+            <dd class="account-details__desc">l2team.contact@gmail.com</dd>
+          </div>
+          <div class="account-details__item">
+            <dt class="account-details__term">Số điện thoại:</dt>
+            <dd class="account-details__desc"></dd>
+          </div>
+          <div class="account-details__item">
+            <dt class="account-details__term">Địa chỉ:</dt>
+            <dd class="account-details__desc"></dd>
+          </div>
+        </dl>
+      </div>
+      </div>
+      <div class="account-content-section hidden" id="orders-section">
+    
+        <main class="profile-main">
+          <h3 class="profile-main__heading">Quản lý đơn hàng</h3>
+          <section class="order-section" aria-label="Danh sách đơn hàng">
+            <table class="order-table" role="table">
+              <thead>
+                <tr role="row">
+                  <th scope="col" role="columnheader">Mã đơn hàng</th>
+                  <th scope="col" role="columnheader">Ngày đặt</th>
+                  <th scope="col" role="columnheader">Sản phẩm</th>
+                  <th scope="col" role="columnheader" class="order-table thead th--right">Tổng tiền</th>
+                  <th scope="col" role="columnheader">Phương thức</th>
+                  <th scope="col" role="columnheader">Trạng thái</th>
+                  <th scope="col" role="columnheader">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr role="row">
+                  <td role="cell" class="order-table__cell order-table__cell--link">
+                    <a href="#">#68110d09347549fd2c9b607f</a>
+                  </td>
+                  <td role="cell" class="order-table__cell">30/04/2025</td>
+                  <td role="cell" class="order-table__cell">
+                    <div class="order-product">
+                      <img src="https://storage.googleapis.com/a1aa/image/3cf28166-bcf3-438d-45d9-c41f62b17420.jpg"
+                        alt="Ảnh sản phẩm Tủ Đầu Giường Gỗ MOHO VIENNA 201 màu nâu gỗ, kích thước nhỏ gọn" width="60"
+                        height="60" class="order-product__image" />
+                      <div class="order-product__info">
+                        <p class="order-product__title">Tủ Đầu Giường Gỗ MOHO VIENNA 201</p>
+                        <p>SL: 1</p>
+                        <p class="order-product__price">1.868.708 đ</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td role="cell" class="order-table__cell order-table__cell--right">1.868.708 đ</td>
+                  <td role="cell" class="order-table__cell order-table__cell--payment">
+                    <i class="fas fa-money-bill-wave" aria-hidden="true"></i> COD
+                  </td>
+                  <td role="cell" class="order-table__cell">
+                    <span class="status status--yellow">Chờ xác nhận</span>
+                  </td>
+                  <td role="cell" class="order-table__cell">
+                    <button class="btn-cancel" type="button" aria-label="Hủy đơn hàng">
+                      <i class="fas fa-times-circle" aria-hidden="true"></i> Hủy đơn hàng
+                    </button>
+                  </td>
+                </tr>
+                <tr role="row">
+                  <td role="cell" class="order-table__cell order-table__cell--link">
+                    <a href="#">#68110c720f64376c5078a6b8</a>
+                  </td>
+                  <td role="cell" class="order-table__cell">30/04/2025</td>
+                  <td role="cell" class="order-table__cell">
+                    <div class="order-product">
+                      <img src="https://storage.googleapis.com/a1aa/image/3cf28166-bcf3-438d-45d9-c41f62b17420.jpg"
+                        alt="Ảnh sản phẩm Tủ Đầu Giường Gỗ MOHO VIENNA 201 màu nâu gỗ, kích thước nhỏ gọn" width="60"
+                        height="60" class="order-product__image" />
+                      <div class="order-product__info">
+                        <p class="order-product__title">Tủ Đầu Giường Gỗ MOHO VIENNA 201</p>
+                        <p>SL: 1</p>
+                        <p class="order-product__price">1.868.708 đ</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td role="cell" class="order-table__cell order-table__cell--right">1.868.708 đ</td>
+                  <td role="cell" class="order-table__cell order-table__cell--payment">
+                    <i class="fas fa-money-bill-wave" aria-hidden="true"></i> COD
+                  </td>
+                  <td role="cell" class="order-table__cell">
+                    <span class="status status--red">Đã huỷ</span>
+                  </td>
+                  <td role="cell" class="order-table__cell"></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination" role="navigation" aria-label="Phân trang">
+              <button type="button" class="pagination__button" disabled aria-disabled="true" aria-label="Trang trước">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="pagination__button pagination__button--current" aria-current="page">
+                1
+              </button>
+              <button type="button" class="pagination__button" aria-label="Trang tiếp theo">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </section>
+        </main>
+      
+      </div>
+    </main>
+  </div>
+
+
+
+
+</body>
+
+</html>
