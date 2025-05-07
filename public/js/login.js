@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.querySelector('form');
     const emailInput = document.getElementById('email');
     const fullNameInput = document.getElementById('full-name');
-    const errorDivs = document.querySelectorAll('.div_error');
+    const errorDivs = document.querySelectorAll('.login-error');
 
     function validateInput(input, condition, errorMessage) {
-        let errorContainer = input.closest('.mb-4');
-        let errorElement = errorContainer.querySelector('.div_error');
-        let inputContainer = input.closest('.input-container');
+        let errorContainer = input.closest('.login-input');
+        let errorElement = errorContainer.querySelector('.login-error');
+        let inputContainer = input.closest('.login-input__container');
         let iconElement = errorContainer.querySelector('.error-icon');
 
         if (!errorElement) return;

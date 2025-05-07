@@ -7,6 +7,8 @@ const hbs = require('express-handlebars');
 const route = require('../src/routes');
 const db = require('../src/config/db/db');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+const { default: mongoose } = require('mongoose');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 db.connect();
@@ -16,6 +18,7 @@ app.engine(
         extname: '.hbs',
     }),
 );
+
 app.set('view engine', 'hbs');
 app.use(morgan('combined'));
 app.set('views', path.join(__dirname, '../src/resources/views'));

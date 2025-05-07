@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.main__login {
+.login-main {
     /* display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.form-container {
+.login-container {
     background-color: #f0fff4;
     padding: 32px;
     border-radius: 8px;
@@ -20,13 +20,13 @@
     max-width: 400px;
 }
 
-.form-container .tabs {
+.login-container .tabs {
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
 }
 
-.form-container .tabs .btn__login {
+.login-container .tabs .login-buton_header {
     font-weight: 600;
     padding: 8px 16px;
     border: none;
@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 
-.form-container .tabs .active {
+.login-container .tabs .active {
     color: #2f855a;
     border-bottom: 2px solid #2f855a;
 }
@@ -45,7 +45,7 @@
     margin-bottom: 8px;
 }
 
-.form-container .input {
+.login-container .login-input__element {
     width: 100%;
     padding: 8px 16px;
     border: 1px solid #e2e8f0;
@@ -53,17 +53,17 @@
     /* margin-top: 16px; */
 }
 
-.form-container .input:focus {
+.login-container .login-input__element:focus {
     outline: none;
     border-color: #2f855a;
     box-shadow: 0 0 0 2px rgba(47, 133, 90, 0.2);
 }
 
-.form-container .relative {
+.login-container .relative {
     position: relative;
 }
 
-.form-container .relative i {
+.login-container .relative i {
     position: absolute;
     right: 12px;
     top: 50%;
@@ -71,7 +71,7 @@
     color: #a0aec0;
 }
 
-.button {
+.login-button {
     width: 100%;
     padding: 13px 16px;
     border: 1px solid #e2e8f0;
@@ -109,14 +109,14 @@
     border-radius: 3px;
 }
 
-.input-container {
+.login-input__container {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.mb-4 {
+.login-input {
     margin-top: 16px;
 }
 
@@ -132,7 +132,7 @@
 }
 
 /* Điều chỉnh input để icon không bị chồng lên */
-.input {
+.login-input__element {
     width: 100%;
     padding: 8px 16px;
     padding-right: 35px; /* Tạo khoảng trống để icon không che nội dung */
@@ -140,7 +140,7 @@
     border-radius: 4px;
 }
 
-.div_error {
+.login-error {
     color: #e53e3e;
     font-size: 12px;
     margin-top: 4px;

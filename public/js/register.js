@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmPasswordInput = document.getElementById('confirm-password');
 
     function validateInput(input, condition, errorMessage) {
-        let errorContainer = input.closest('.mb-4');
-        let errorElement = errorContainer.querySelector('.div_error');
-        let inputContainer = input.closest('.input-container');
+        let errorContainer = input.closest('.register-input');
+        let errorElement = errorContainer.querySelector('.register-error');
+        let inputContainer = input.closest('.register-input__container');
         let iconElement = errorContainer.querySelector('.error-icon');
 
         if (!errorElement) return;

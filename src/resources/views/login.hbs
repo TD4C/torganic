@@ -1,25 +1,24 @@
-
-<main class="main__login">
-    <div class="form-container">
+<main class="login-main">
+    <div class="login-container">
         <div class="tabs">
-            <a href="/login"> <button class="btn__login active">Login</button></a>
-            <a href="/register"><button class="btn__login">Register</button></a>
+            <a href="/login"> <button class="login-buton_header active">Login</button></a>
+            <a href="/register"><button class="login-buton_header">Register</button></a>
         </div>
          <form>
-            <div class="mb-4">
+            <div class="login-input">
                 <label class="label" for="full-name">Full name</label>
-               <div class="input-container">
-                <input class="input" id="full-name" type="text" placeholder="Huỳnh Thành Đạt"/>
+               <div class="login-input__container">
+                <input class="login-input__element" id="full-name" type="text" placeholder="Huỳnh Thành Đạt"/>
                </div>
-               <div class="div_error"></div>
+               <div class="login-error"></div>
             </div>
-            <div class="mb-4">
+            <div class="login-input">
                 <label class="label" for="email">Email</label>
-                <div class="input-container">
-                    <input class="input" id="email" type="email" />
+                <div class="login-input__container">
+                    <input class="login-input__element" id="email" type="email" />
                     <!-- <i class="fas fa-envelope"></i> -->
                 </div>
-                <div class="div_error"></div>
+                <div class="login-error"></div>
             </div>
             <div class="checkbox-container">
                 <label  class="tick">
@@ -30,11 +29,9 @@
                  Forgot Password?
                 </a>
                </div>
-            <div class="mb-4">             
-             <button class="button" >Create an account</button>
+            <div class="login-input__container">             
+             <button class="login-button" >Create an account</button>
             </div>
-        </form> 
-       
-        
+        </form>       
     </div>
 </main>
