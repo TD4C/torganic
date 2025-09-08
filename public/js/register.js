@@ -175,15 +175,40 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const newUser = { fullName, email, phone, password };
-        storedUsers.push(newUser);
-        localStorage.setItem('users', JSON.stringify(storedUsers));
-        // localStorage.setItem("currentUser", JSON.stringify(newUser));
-
-        alert('Đăng ký thành công!');
-        registerForm.reset();
-        document
-            .querySelectorAll('.green')
-            .forEach((input) => input.classList.remove('green'));
+        // const newUser = { fullName, email, phone, password };
+        // storedUsers.push(newUser);
+        // localStorage.setItem('users', JSON.stringify(storedUsers));
+        // alert('Đăng ký thành công!');
+        // registerForm.reset();
+        // document
+        //     .querySelectorAll('.green')
+        //     .forEach((input) => input.classList.remove('green'));
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: fullName, // hoặc fullName nếu bạn dùng nó làm username
+                password: password,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.message === 'Đăng ký thành công') {
+                    alert('Đăng ký thành công!');
+                    registerForm.reset();
+                    document
+                        .querySelectorAll('.green')
+                        .forEach((input) => input.classList.remove('green'));
+                    window.location.href = '/login';
+                } else {
+                    alert(data.message || 'Đăng ký thất bại!');
+                }
+            })
+            .catch((error) => {
+                console.error('Lỗi:', error);
+                alert('Lỗi server!');
+            });
     });
 });

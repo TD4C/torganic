@@ -9,13 +9,19 @@ const db = require('../src/config/db/db');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const { default: mongoose } = require('mongoose');
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const hbsHelpers = require('../src/util/handlebars');
 db.connect();
 app.engine(
     'hbs',
     hbs.engine({
         extname: '.hbs',
+        partialsDir: path.join(__dirname, '../src/resources/views/partials'),
+        helpers: hbsHelpers, // Gắn helper vào đây
     }),
 );
 

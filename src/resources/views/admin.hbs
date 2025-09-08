@@ -1,0 +1,230 @@
+<body>
+    <aside class="admin-sidebar" role="navigation" aria-label="Sidebar navigation">
+        <div class="admin-sidebar__top">
+            <div class="admin-sidebar__logo">
+                <img src="https://storage.googleapis.com/a1aa/image/a80cc8c1-c465-4979-c9e0-fd1378376eb0.jpg"
+                    alt="Blue rounded square icon with white interior representing brand logo" />
+                <span>Nội Thất</span>
+            </div>
+            <nav class="admin-sidebar__nav" aria-label="Main menu">
+                <a href="#" class="admin-sidebar__nav-link admin-sidebar__nav-link--active"><i class="fas fa-clock"></i>
+                    Thống kê</a>
+                <a href="#" class="admin-sidebar__nav-link"><i class="fas fa-th-large"></i> Quản lý
+                    danh mục</a>
+                <a href="#" class="admin-sidebar__nav-link"><i class="far fa-calendar-alt"></i> Quản lý
+                    sản phẩm</a>
+                <a href="#" class="admin-sidebar__nav-link"><i class="fas fa-user"></i> Quản lý người
+                    dùng</a>
+                <a href="#" class="admin-sidebar__nav-link"><i class="fas fa-shopping-cart"></i> Quản
+                    lý đơn hàng</a>
+            </nav>
+        </div>
+        <div class="admin-sidebar__bottom">
+            <div class="admin-sidebar__avatar"><i class="far fa-user"></i></div>
+            <div class="admin-sidebar__user-info">
+                <span class="admin-sidebar__user-name">Admin</span>
+                <span>Quản trị viên</span>
+            </div>
+        </div>
+    </aside>
+    <main class="admin-main">
+        <header class="admin-header">
+            <button aria-label="Toggle menu" class="admin-header__menu-button"><i class="fas fa-bars"></i></button>
+            <span>Bảng điều khiển</span>
+        </header>
+        <section class="admin-content" aria-label="Dashboard content">
+            <h2 class="admin-content__title"><i class="fas fa-chart-bar"></i> Tổng quan</h2>
+            <div class="admin-summary-cards" role="list">
+                <article class="admin-summary-card admin-summary-card--users" role="listitem"
+                    aria-label="Tổng số người dùng">
+                    <p class="admin-summary-card__title">Tổng số người dùng</p>
+                    <div class="admin-summary-card__value"><i class="far fa-user"></i>1</div>
+                    <p class="admin-summary-card__subtitle">1 qua Google</p>
+                </article>
+                <article class="admin-summary-card admin-summary-card--products" role="listitem"
+                    aria-label="Tổng số sản phẩm">
+                    <p class="admin-summary-card__title">Tổng số sản phẩm</p>
+                    <div class="admin-summary-card__value"><i class="far fa-shopping-bag"></i>11
+                    </div>
+                    <p class="admin-summary-card__subtitle">3 danh mục</p>
+                </article>
+                <article class="admin-summary-card admin-summary-card--orders" role="listitem"
+                    aria-label="Tổng đơn hàng">
+                    <p class="admin-summary-card__title">Tổng đơn hàng</p>
+                    <div class="admin-summary-card__value"><i class="fas fa-shopping-cart"></i>9
+                    </div>
+                    <p class="admin-summary-card__subtitle">5 đã giao</p>
+                </article>
+                <article class="admin-summary-card admin-summary-card--revenue" role="listitem"
+                    aria-label="Tổng doanh thu">
+                    <p class="admin-summary-card__title">Tổng doanh thu</p>
+                    <div class="admin-summary-card__value"><i class="fas fa-dollar-sign"></i>16,958,832.64 đ</div>
+                    <p class="admin-summary-card__subtitle">Doanh thu thành công</p>
+                </article>
+            </div>
+            <div class="admin-tabs" role="region" aria-label="Dashboard tabs">
+                <nav class="admin-tabs__nav" role="tablist" aria-label="Dashboard tabs navigation">
+                    <button class="admin-tabs__button admin-tabs__button--active" role="tab" id="admin-tab-1">
+                        <i class="fas fa-chart-line"></i> Doanh thu
+                    </button>
+                    <button class="admin-tabs__button" role="tab" id="admin-tab-2">
+                        <i class="far fa-shopping-bag"></i> Sản phẩm
+                    </button>
+                    <button class="admin-tabs__button" role="tab" id="admin-tab-3">
+                        <i class="far fa-star"></i> Đánh giá
+                    </button>
+                </nav>
+                <div class="admin-tabs__content doanhthu-section" id="admin-tab-panel-1" role="tabpanel"
+                    aria-labelledby="admin-tab-1">
+                    <h3 class="admin-tabs__content-title"><i class="far fa-calendar-alt"></i> Doanh
+                        thu 7 ngày gần đây</h3>
+                    <div class="admin-chart-container" aria-label="Bar chart showing revenue for the last 7 days">
+                        <div class="admin-chart-y-axis">
+                            <span>12,000,000</span>
+                            <span>10,000,000</span>
+                            <span>8,000,000</span>
+                            <span>6,000,000</span>
+                            <span>4,000,000</span>
+                            <span>2,000,000</span>
+                            <span>0</span>
+                        </div>
+                        <div class="admin-chart-bars-wrapper">
+                            <div class="admin-chart-bars">
+                                <div class="admin-chart-bar admin-chart-bar--medium" style="height: 160px;">
+                                    <div class="admin-chart-bar__value">7,000,000</div>
+                                </div>
+                                <div class="admin-chart-bar admin-chart-bar--tall" style="height: 240px;">
+                                    <div class="admin-chart-bar__value">11,000,000</div>
+                                </div>
+                            </div>
+                            <div class="admin-chart-x-axis">
+                                <span>Ngày 1</span>
+                                <span>Ngày 2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-tabs__content hidden product-section" id="admin-tab-panel-2" role="tabpanel"
+                    aria-labelledby="admin-tab-2">
+                    <!-- Content for Sản phẩm tab can be added here -->
+                    <div id="tab-panel-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0">
+                        <div class="admin-product__table-container">
+                            <h3 class="admin-product__table-title">Sản phẩm bán chạy</h3>
+                            <table class="admin-product__table" role="table" aria-label="Top selling products">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Tên sản phẩm</th>
+                                        <th scope="col">Giá</th>
+                                        <th scope="col" style="text-align:right;">
+                                            Đã bán
+                                            <i class="hidden-icon fas fa-sort-down"
+                                                style="margin-left:4px; font-size:10px; color:#9ca3af;"></i>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tủ Đầu Giường Gỗ MOHO VIENNA 201</td>
+                                        <td>2.123.532đ</td>
+                                        <td style="text-align:right;">2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tủ Quần Áo Ubeda Ngăn Kệ 201 Có Gương Nhiều Kích Thước</td>
+                                        <td>1.500.000đ</td>
+                                        <td style="text-align:right;">1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giường Ngủ Gỗ Có Hộc &amp; Ổ Điện MOHO VIENNA</td>
+                                        <td>5.900.000đ</td>
+                                        <td style="text-align:right;">1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tủ Đầu Giường Gỗ MOHO VLINE 801</td>
+                                        <td>1.700.000đ</td>
+                                        <td style="text-align:right;">1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giường Ngủ Gỗ Tràm MOHO DALUMD 301 Ver 2 Màu Nâu Hạnh Nhân</td>
+                                        <td>4.700.000đ</td>
+                                        <td style="text-align:right;">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giường Ngủ MOHO KOSTER Màu Nâu 1m6</td>
+                                        <td>5.400.000đ</td>
+                                        <td style="text-align:right;">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giường Ngủ Gỗ MOHO NARVIK 201 1m6 2 Màu</td>
+                                        <td>2.500.000đ</td>
+                                        <td style="text-align:right;">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tủ Quần Áo Gỗ MOHO KOSTER Màu Nâu Nhiều Kích Thước</td>
+                                        <td>6.000.000đ</td>
+                                        <td style="text-align:right;">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tủ Quần Áo Gỗ Có Gương MOHO GRENAA 2 Nhiều Kích Thước</td>
+                                        <td>4.000.000đ</td>
+                                        <td style="text-align:right;">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tủ Quần Áo Gỗ MOHO NARVIK Nhiều Kích Thước</td>
+                                        <td>1.700.000đ</td>
+                                        <td style="text-align:right;">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-tabs__content hidden danhgia-section" id="admin-tab-panel-3" role="tabpanel"
+                    aria-labelledby="admin-tab-3">
+                    <!-- Content for Đánh giá tab can be added here -->
+                    <section class="admin-evaluate-tabs " aria-label="Tabs and content">
+                        <div class="admin-evaluate-rating-cards" aria-label="Rating summary cards">
+                            <article class="rating-card rating-users" aria-label="Tổng số đánh giá">
+                                <small>Tổng số đánh giá</small>
+                                <div class="value"><i class="far fa-star" aria-hidden="true"></i>0</div>
+                            </article>
+
+                            <article class="rating-card rating-average" aria-label="Đánh giá trung bình">
+                                <small>Đánh giá trung bình</small>
+                                <div class="value"><i class="far fa-star" aria-hidden="true"></i>0.0<span>/5</span>
+                                </div>
+                            </article>
+
+                            <article class="rating-card rating-products" aria-label="Sản phẩm có đánh giá">
+                                <small>Sản phẩm có đánh giá</small>
+                                <div class="value"><i class="far fa-star" aria-hidden="true"></i>0</div>
+                            </article>
+                        </div>
+
+                        <div class="admin-evaluate-table-container" aria-label="Sản phẩm được đánh giá cao nhất">
+                            <h2>Sản phẩm được đánh giá cao nhất</h2>
+                            <table class="admin-evaluate-table" role="table" aria-describedby="no-data-desc">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sản phẩm</th>
+                                        <th scope="col">Đánh giá trung bình</th>
+                                        <th scope="col">Số lượng đánh giá</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3" id="no-data-desc" aria-live="polite" aria-atomic="true">
+                                            <div>
+                                                <i class="far fa-inbox" aria-hidden="true"></i>
+                                                No data
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>

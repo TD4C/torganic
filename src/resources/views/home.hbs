@@ -79,17 +79,17 @@
             {{#each products}}
 <div class="product" data-category="{{this.category}}" data-id="{{this.productId}}" data-name="{{this.name}}" data-price="{{this.price}}"
     data-original="{{this.originalPrice}}" data-discount="{{this.discount}}" data-img="{{this.image}}">
-    <div class="discount">{{this.discount}}</div>
+    <div class="discount">{{this.discount}}%</div>
     <img class="product_img" src="{{this.image}}" alt="{{this.name}}">
     <h2 class="product_name">{{this.name}}</h2>
     <div class="rating">
         <i class="product_star fas fa-star"></i>
-        <span>{{this.rating}} ({{this.reviews}} Reviews)</span>
+        <span>{{this.rating}} ({{this.reviews}} Reviews)</span>     
     </div>
     <div class="price">
-        {{this.price}}
+        {{formatCurrency this.price}}
         {{#if this.originalPrice}}
-        <span class="original">{{this.originalPrice}}</span>
+        <span class="original">{{formatCurrency this.originalPrice}}</span>
         {{/if}}
     </div>
     <button class="buy_button">Add To Cart</button>

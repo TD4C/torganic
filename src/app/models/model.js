@@ -18,6 +18,6 @@ const productSchema = new mongoose.Schema(
     },
 );
 
-const Product = mongoose.model('Product', productSchema); // đổi "Products" → "Product" để đúng convention
+const Product = mongoose.model('Products', productSchema); // đổi "Products" → "Product" để đúng convention
 
 module.exports = Product;

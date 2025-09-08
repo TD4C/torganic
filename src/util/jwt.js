@@ -7,9 +7,12 @@ const generateToken = (payload, expiresIn = '1d') => {
 
 const verifyToken = (token) => {
     try {
-        return jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        console.log('Decoded token:', decoded); // Log thông tin token đã giải mã
+        return decoded;
     } catch (err) {
-        return null;
+        console.error('Token verification error:', err); // Log lỗi nếu có
+        return null; // Trả về null nếu có lỗi
     }
 };
 

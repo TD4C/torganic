@@ -23,4 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+    document
+        .querySelector('.logout-button')
+        .addEventListener('click', async () => {
+            await fetch('/logout', { method: 'GET', credentials: 'include' });
+            window.location.href = '/login';
+        });
 });

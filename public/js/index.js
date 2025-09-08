@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const dropdownMenu = document.getElementById('dropdownMenu');
@@ -219,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
         userGreeting.innerHTML = `<i class="fas fa-user"></i>  ${currentUser.fullName}`;
         dropdownMenu.innerHTML = `
         <a href="/account" class="dropdown-item">Tài khoản</a>
-        <button id="logoutBtn" class="dropdown-item">Đăng xuất</button>
+        <a href="/logout" id="logoutBtn" class=" dropdown-item">Đăng xuất</a>
       `;
         document
             .getElementById('logoutBtn')

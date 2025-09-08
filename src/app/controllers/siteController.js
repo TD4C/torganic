@@ -4,21 +4,6 @@ const { mutiplemongoseToObj } = require('../../util/mongose');
 class siteControllers {
     // [GET] home
 
-    // index(req, res, next) {
-    //     product
-    //         .find({})
-
-    //         .then((products) => {
-    //             console.log(products);
-    //             res.render('home', {
-    //                 title: 'Torganic',
-    //                 scripts: '<script src="/js/home.js"></script>',
-
-    //                 products: mutiplemongoseToObj(products),
-    //             });
-    //         })
-    //         .catch(next);
-    // }
     index(req, res, next) {
         const category = req.query.category || 'all';
         const query = category === 'all' ? {} : { category: category };

@@ -1,68 +1,61 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.querySelector('form');
-    const emailInput = document.getElementById('email');
-    const fullNameInput = document.getElementById('full-name');
-    const errorDivs = document.querySelectorAll('.login-error');
+    const loginForm = document.getElementById('login-form');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
 
     function validateInput(input, condition, errorMessage) {
-        let errorContainer = input.closest('.login-input');
-        let errorElement = errorContainer.querySelector('.login-error');
-        let inputContainer = input.closest('.login-input__container');
-        let iconElement = errorContainer.querySelector('.error-icon');
-
-        if (!errorElement) return;
-
+        const container = input.closest('.login-input');
+        const errorDiv = container.querySelector('.login-error');
         if (condition) {
             input.classList.remove('red');
             input.classList.add('green');
-            errorElement.textContent = '';
-            if (iconElement) iconElement.style.display = 'none';
+            errorDiv.textContent = '';
         } else {
             input.classList.remove('green');
             input.classList.add('red');
-            errorElement.textContent = errorMessage;
-
-            if (!iconElement) {
-                iconElement = document.createElement('i');
-                iconElement.classList.add(
-                    'fas',
-                    'fa-exclamation-triangle',
-                    'error-icon',
-                );
-                inputContainer.appendChild(iconElement);
-            }
-            iconElement.style.display = 'block';
+            errorDiv.textContent = errorMessage;
         }
     }
 
-    loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+    loginForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
 
-        const email = emailInput.value.trim();
-        const fullName = fullNameInput.value.trim();
-
-        const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-        const user = storedUsers.find(
-            (user) => user.email === email && user.fullName === fullName,
+        validateInput(
+            usernameInput,
+            username !== '',
+            'Vui lòng nhập tên đăng nhập',
         );
+        validateInput(passwordInput, password !== '', 'Vui lòng nhập mật khẩu');
 
-        validateInput(emailInput, email !== '', 'Vui lòng nhập email.');
-        validateInput(fullNameInput, fullName !== '', 'Vui lòng nhập họ tên.');
+        if (!username || !password) return;
 
-        if (!user) {
-            validateInput(emailInput, false, 'Email hoặc họ tên không đúng.');
-            validateInput(
-                fullNameInput,
-                false,
-                'Email hoặc họ tên không đúng.',
-            );
-        } else {
-            validateInput(emailInput, true);
-            validateInput(fullNameInput, true);
+        try {
+            const res = await fetch('/login', {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password }),
+            });
 
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            alert('Đăng nhập thành công!');
-            window.location.href = '/';
+            const data = await res.json();
+
+            if (res.ok) {
+                alert('Đăng nhập thành công!');
+                // Không cần lưu token — đã ở trong cookie từ server
+                window.location.href = data.isAdmin ? '/admin' : '/';
+            } else {
+                validateInput(
+                    usernameInput,
+                    false,
+                    'Tên đăng nhập không đúng.',
+                );
+                validateInput(passwordInput, false, 'Mật khẩu không đúng.');
+            }
+        } catch (err) {
+            console.error(err);
+            alert('Lỗi kết nối đến server.');
         }
     });
 });
