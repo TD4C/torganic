@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const port = 3000;
+//const port = 3000;
+const port = process.env.PORT || 3000;
 const morgan = require('morgan');
 const hbs = require('express-handlebars');
 const route = require('../src/routes');
